@@ -1,8 +1,20 @@
 const express = require('express')
-
 const app = express()
 
 const adminApp = express()
+
+const productRoute = require("./router/route")
+const productApp = express()
+
+const cors = require('cors')
+app.use(cors()) // middleware to expose api for other users as public
+app.use(express.json({limit:'2mb',extended:false}))//json middle-ware for setting request content type to json in body
+
+app.use('/product',productRoute)
+productApp.use('/', productRoute)
+
+
+
 
 app.get('/', function(req,res) {
 
