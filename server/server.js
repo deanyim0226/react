@@ -1,21 +1,42 @@
 const express = require('express')
-const app = express()
+const cors = require('cors')
 
-const adminApp = express()
 
-const productRoute = require("./router/route")
+const productRoute = require("./router/productRoute")
 const productApp = express()
 
-const cors = require('cors')
+const userRoute = require("./router/userRoute")
+const userApp = express()
+
+const cartRoute = require("./router/cartRoute")
+const cartApp = express()
+
+const app = express()
 app.use(cors()) // middleware to expose api for other users as public
 app.use(express.json({limit:'2mb',extended:false}))//json middle-ware for setting request content type to json in body
 
-app.use('/product',productRoute)
+app.use('/shop', productRoute)
 productApp.use('/', productRoute)
 
+app.use('/user', userRoute)
+userApp.use('/', userRoute)
+
+app.use('/cart', cartRoute)
+cartApp.use('/', cartRoute)
+
+
+app.listen(9000)
+console.log("listen to 9000 port")
+app.get('/', function(req,res) {
+
+    console.log(req)
+    console.log(res)
+    res.send("hello world!!!!")
+})
 
 
 
+/*
 app.get('/', function(req,res) {
 
     res.send("hello world")
@@ -53,5 +74,4 @@ adminApp.get('/', function(req,res){
 app.use('*', function(req,res){
     res.send("UNDER CONSTRUCTION")
 })
-
-app.listen(9000)
+*/

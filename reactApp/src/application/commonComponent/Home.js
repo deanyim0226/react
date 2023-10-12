@@ -1,9 +1,26 @@
-import React, {Component} from "react";
+import React from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
+const Home = () => {
 
+    let user = useSelector((state)=>state.userReducer.user)
+    let navigate = useNavigate()
+
+    return(
+        <>{ 
+            user ? 
+            <h1>WELCOME {user.email} </h1>
+            :""
+            }
+        </>
+    )
+}
+
+export default Home
+/*
 //1. Create a class component and show all the life cycle hooks
-
-
 export default class Home extends Component{
 
     //creation life cycle method
@@ -118,7 +135,9 @@ export default class Home extends Component{
                 <input type = "text" className="address" value = {this.state.address} onChange={this.textChange}>   
                 </input>
             </div>
-        */}            
+*/
+/*
+}            
        
             <div>
                 <label>NAME</label>
@@ -137,3 +156,4 @@ export default class Home extends Component{
     }
 
 }
+*/

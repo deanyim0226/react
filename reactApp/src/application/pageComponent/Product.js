@@ -2,7 +2,7 @@ import React from "react"
 import { useState , useRef , useEffect} from "react"
 import { connect, useDispatch, useSelector } from "react-redux" //require react UI and mapstateToProps and mapDispatchToProps
 
-import { saveDataToDB } from "../state/product/action"
+import { saveDataToDB } from "../state/product/ProductAction"
 
 //3. Create a product component using functional component and hooks (try using use state to read default values from reducer)
 // 	 Create a form to allow user to submit Product Details - name, price, desc, rating
@@ -14,12 +14,15 @@ const Product = (props) =>{
 //Create a product component using functional component and hooks 
 //(try using use state to read default values from reducer)
 
+// UI -> Action -> Reducer -> Store -> State -> UI
 /*
 Selectors are functions that know how to extract specific pieces of information from a store state value. 
 As an application grows bigger, this can help avoid repeating logic as different parts of the app need to read the same data:
 */
-    let product = useSelector((state)=> state.productReducer.Product)
-
+    let product = useSelector((state)=> state.productReducer.products)
+    /*
+    useSelector reads a value from the store state and subscribes to updates
+    */
     const [name, setName] = useState(product.name)
     const [price, setPrice] = useState(product.price)
     const [description, setDescription] = useState(product.description)
@@ -27,13 +30,15 @@ As an application grows bigger, this can help avoid repeating logic as different
 
     const [width, setWidth] = useState(window.innerWidth)
 
+
     let dispatchToDB = useDispatch()
 
+    /*
+    useDispatch returns the store's dispatch method to let you dispatch actions.
+    */
 
     //combination of componentDidMount + componentDidUpdate + componentWillMount 
-    useEffect( () =>{
-        document.title = name + ' ' + price 
-    });
+ 
 
     useEffect( () => {
 
@@ -46,7 +51,7 @@ As an application grows bigger, this can help avoid repeating logic as different
         return () =>{
             window.removeEventListener('resize',handleResize)
         };
-    }, [width])
+    })
 
     const onChange = (e) =>{
 
@@ -65,7 +70,7 @@ As an application grows bigger, this can help avoid repeating logic as different
         }
     }
 
-    const submit = (e) =>{
+    const submit = (evt) =>{
         
         let productDetails = {
             name,
@@ -75,7 +80,7 @@ As an application grows bigger, this can help avoid repeating logic as different
         }
   
         dispatchToDB(saveDataToDB(productDetails))
-
+        evt.preventDefault();
     }
 
     /*

@@ -6,12 +6,14 @@ let Header = (props) =>{
     return(
         <div>
      
-            <NavLink to = "/" className="button" activeclassname = "success"> Home  </NavLink>
+            <NavLink to = "/" className="" activeclassname = "success"> Home  </NavLink>
 
-            <NavLink to = "/qa" className ="button" activeclassname = "success">QA</NavLink>
-            <NavLink to = "/login" className= "button" activeclassname = "success">LOG IN</NavLink>
-            <NavLink to = "/register" className= "button" activeclassname = "success">Register</NavLink>
-            <NavLink to ="/product" className= "button" activeclassname= "success">PRODUCT</NavLink>
+            <NavLink to = "/profile" className ="" activeclassname = "success">Profile</NavLink>
+            <NavLink to = "/login" className= "" activeclassname = "success">LOG IN</NavLink>
+            <NavLink to = "/register" className= "" activeclassname = "success">Register</NavLink>
+            <NavLink to ="/shop" className= "" activeclassname= "success">SHOP</NavLink>
+            <NavLink to = "/cart" className="" activeclassname ="success">CART</NavLink>
+            <NavLink to = "/product" className= "" activeclassname ="success">PRODUCT</NavLink>
         </div>
     )
 

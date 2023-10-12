@@ -3,11 +3,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Header from "./commonComponent/Header";
 import Footer from "./commonComponent/Footer";
 import Home from "./commonComponent/Home";
-import Qa from "./pageComponent/QA";
+import Profile from "./pageComponent/Profile";
 import Login from "./pageComponent/Login";
 import Register from "./pageComponent/Register";
-
+import DisplayProduct from "../application/pageComponent/Product/DisplayProduct"
 import Product from "./pageComponent/Product";
+
+import Cart from "./pageComponent/Cart"
+
 export default class Application extends Component{
     
     constructor(props){
@@ -25,9 +28,11 @@ export default class Application extends Component{
                 <Header/>
                     <Routes>
                         <Route path ="/" element = {<Home/>}/>
-                        <Route path ="/qa" element = {<Qa/>}/>
+                        <Route path ="/profile" element = {<Profile/>}/>
                         <Route path = "/login" element = {<Login/>}/>
                         <Route path = "/register" element = {<Register/>}/>
+                        <Route path = "/shop" element = {<DisplayProduct/>}/>
+                        <Route path = "/cart" element = {<Cart/>}/>
                         <Route path = "/product" element = {<Product/>}/>
                     </Routes>
                 <Footer/>
@@ -55,4 +60,15 @@ export default class Application extends Component{
     useContext lets you subcribe to React context without introducing nesting
     userReducer
 
+*/
+
+
+/*
+// 11-10-2023 - Recentorder Page 
+// Upon MakePayment Click
+// Save the cart to RecentOrders collection (should have userid, order, dateTime)
+// Make API to Save and Fetch from RecentOrders
+// Make a component RecentOrders to Show all previous Orders of current user
+// Add a button to Cancel (like) we have remove in CartComponent and then save again, 
+// order can be cancelled within 2 days after that it should be marked delivered
 */

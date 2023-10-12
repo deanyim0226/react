@@ -7,7 +7,10 @@ import store from "./application/state/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-
+/*
+React Redux includes a <Provider /> component, 
+which makes the Redux store available to the rest of your app
+*/
 root.render(
     <Provider store={store}>
         <Application/>

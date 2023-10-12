@@ -1,12 +1,17 @@
 import { combineReducers, applyMiddleware } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-import productReducer from "./product/reducer";
+import productReducer from "./product/ProductReducer";
+import userReducer from "./user/UserReducer"
+import cartReducer from "./cart/CartReducer";
 import thunk from "redux-thunk";
 
 
 //combine reducer is used to combine all the reducers we need in our store/state
 const rootReducer = combineReducers({
     productReducer,
+    userReducer,
+    cartReducer,
+  
 })
 
 /*

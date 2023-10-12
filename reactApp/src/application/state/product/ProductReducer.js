@@ -7,7 +7,8 @@ You can think of a reducer as an event listener which handles events based on th
 import * as ActionType from "../actionTypes"
 
 const Initial_Product_State = {
-    Product : {
+    products:[],
+    default : {
         name: "",
         price: "",
         description: "",
@@ -17,12 +18,14 @@ const Initial_Product_State = {
 
 //write callback / reducer to generate new state upon action change
 let productReducer = (state = Initial_Product_State, action) =>{
-
+    
     switch (action.type){
-        case ActionType.SendDetailsToStore:
+        case ActionType.SendProductDetailsToStore:
             //... state : {Product, ...}
-
-            return {...state, Product : action.payload}
+            return {...state, products : action.payload}
+        
+        case ActionType.GetProductDetailsFromStore:
+            return {...state, products : action.payload}
 
         default:
             return state
