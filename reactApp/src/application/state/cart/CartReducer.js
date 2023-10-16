@@ -5,7 +5,8 @@ const Initial_Cart_State = []
 
 let cartReducer = (state = Initial_Cart_State, action) =>{
 
-    console.log("cart Reducer", state, action);
+    console.log("cart Reducer state " + state)
+    console.log("cart Reducer action " + action.payload)
     switch(action.type){
 
         case actionTypes.AddItemToCart:

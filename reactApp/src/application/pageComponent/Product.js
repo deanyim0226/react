@@ -78,8 +78,9 @@ As an application grows bigger, this can help avoid repeating logic as different
             description,
             rating
         }
-  
+        
         dispatchToDB(saveDataToDB(productDetails))
+        alert("Product is added successfully")
         evt.preventDefault();
     }
 

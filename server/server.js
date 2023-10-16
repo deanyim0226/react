@@ -11,6 +11,9 @@ const userApp = express()
 const cartRoute = require("./router/cartRoute")
 const cartApp = express()
 
+const orderRoute = require("./router/orderRoute")
+const orderApp = express()
+
 const app = express()
 app.use(cors()) // middleware to expose api for other users as public
 app.use(express.json({limit:'2mb',extended:false}))//json middle-ware for setting request content type to json in body
@@ -24,6 +27,8 @@ userApp.use('/', userRoute)
 app.use('/cart', cartRoute)
 cartApp.use('/', cartRoute)
 
+app.use('/order',orderRoute)
+orderApp.use('/', orderRoute)
 
 app.listen(9000)
 console.log("listen to 9000 port")

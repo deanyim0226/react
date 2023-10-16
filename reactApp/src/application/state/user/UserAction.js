@@ -19,6 +19,36 @@ export const signUpUser = (newUser) =>{
     }
 }
 
+export const updateUser = (existedUser) =>{
+    return{
+        type: actionType.UpdateUserInfo,
+        payload: existedUser
+    }
+}
+
+export const updateUserToDb = (updatedUser) =>{
+
+    return function(dispatch) {
+        window.fetch("http://localhost:9000/user/api/update", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedUser)
+
+        })
+        .then(response => response.json())
+        .then((response) =>{
+            console.log("we updated to the db " + response)
+            dispatch(updateUser(response))
+            alert("Successfully updated")
+        }).catch((err)=>{
+            console.log("Error while fetching user" , err)
+        })
+    }
+}
+
 export const saveUserToDb = (newUser) =>{
 
     return function(dispatch){

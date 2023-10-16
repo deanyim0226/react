@@ -8,11 +8,21 @@ const Home = () => {
     let user = useSelector((state)=>state.userReducer.user)
     let navigate = useNavigate()
 
+    
+// Part 2 : 
+// Hide all the links except : Home, User and About for a user not logged-in
+// In Product Component show Save to product section only to a user with name "admin" so that not all users 
+// can insert the products to database 
+
     return(
         <>{ 
-            user ? 
-            <h1>WELCOME {user.email} </h1>
-            :""
+            user.email.length >= 1 && user.firstName.length >= 1 && user.lastName.length >= 1? 
+            <h1>WELCOME {user.firstName + user.lastName} </h1>
+            : <div>
+                <h2>WELCOME TO OUR WEBSITE</h2>
+                <h3>USER ACCOUNT IS REQUIRED TO USE OUR WEBSITE</h3>
+            </div>
+            
             }
         </>
     )

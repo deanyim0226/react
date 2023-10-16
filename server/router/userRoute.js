@@ -3,6 +3,38 @@ const userRouter = express.Router()
 
 const userDataModel = require("../data_model/userDataModel")
 
+userRouter.post("/api/update", (req,res)=>{
+    let updatedUserInfo = req.body
+
+    userDataModel.findOne({email: updatedUserInfo.email})
+    .then((user)=>{
+
+        if(user) {
+    
+            user.firstName = updatedUserInfo.firstName
+            user.lastName = updatedUserInfo.lastName
+            user.address = updatedUserInfo.address
+            user.mobile = updatedUserInfo.mobile
+
+            user.save()
+            .then((data)=>{
+                setTimeout(() => {
+                    console.log(" successfully updated user " + data)
+                    res.json(data)
+                },3000)
+            })
+            .catch((err)=>{
+                res.send("error occour when saving cartItem into db " + err)
+            })
+        }
+        
+    })
+    .catch((err) =>{
+        console.log("there is an error when finding a user in DB " + err)
+        res.send(err)
+    })
+})
+
 userRouter.post("/api/signin", (req,res)=>{
     let userInfo = req.body
     console.log(userInfo)

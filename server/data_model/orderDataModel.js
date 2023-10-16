@@ -3,11 +3,11 @@ mongooseObj.connect("mongodb://127.0.0.1/personalProject")
 
 schemaObj = mongooseObj.Schema
 
-let cartSchema = new schemaObj({
+let orderSchema = new schemaObj({
     userid: {type:String, required:true},
-    cart: Object,
-    
+    order: Object,
+    date: Object
 })
 
-let CartModel = mongooseObj.model("cart", cartSchema)
-module.exports = CartModel
+let OrderModel = mongooseObj.model("order", orderSchema)
+module.exports = OrderModel

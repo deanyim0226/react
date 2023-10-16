@@ -19,15 +19,16 @@ let CartItemComponent = (props) =>{
             <td>{item.rating}</td>
             <td>
             {
-        
+                props.readOnly ? quantity 
+                :
                 <input type="text" value={quantity} onChange={(evt)=>{setQuantity(evt.target.value)}}></input>    
             }</td>
             <td>{item.qty*item.price}</td>
             {
-                //props.readOnly ?  "" : //bydefault false as boolean default is false
+                props.readOnly ?  "" : //bydefault false as boolean default is false
                     <Fragment>
                         <td><button onClick={()=>dispatchItem(deleteItemFromCart(item._id))}>Remove</button> </td>
-                        <td><button onClick={()=>dispatchItem(updateItemFromCart(item._id, quantity))}>Edit</button></td>
+                        <td><button onClick={()=>dispatchItem(updateItemFromCart(item._id, quantity))}>Update</button></td>
                     </Fragment>
             }
         </tr>

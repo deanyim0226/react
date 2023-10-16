@@ -45,6 +45,7 @@ const Cart = (props) =>{
     let saveCart = (evt) => {
 
         dispatchToDB(saveCartToDb(cartList,user._id))
+        alert("successfully saved the cart for future reference")
         evt.preventDefault();
     }
 
@@ -60,7 +61,6 @@ const Cart = (props) =>{
         <h1>Cart</h1>
  
         {   
-        
             cartList && cartList.length >= 1 ? 
             <>
             <table>
@@ -91,14 +91,11 @@ const Cart = (props) =>{
             </table>
             
             <CartSummary data = {recalculate(cartList)}/>
-
             {
-
                 <Fragment>
                     <button onClick={saveCart}>Save Cart</button>
                     <button onClick={checkOut}>Checkout</button>
-                </Fragment>
-    
+                </Fragment>   
             }
             </>
             : <h2>Please add items to cart</h2>

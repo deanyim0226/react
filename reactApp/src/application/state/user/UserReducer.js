@@ -10,7 +10,9 @@ const InitialUserState = {
         password: "",
         firstName: "",
         lastName: "",
+        address: "",
         mobile: "",
+        admin: false,
     }
 }
 
@@ -22,7 +24,9 @@ let userReducer = (state = InitialUserState, action) =>{
 
         case ActionType.SendUserInfoToStore:
             return {...state, user: action.payload}
-            
+        
+        case ActionType.UpdateUserInfo:
+            return {...state, user: action.payload}
         default:
             return state
     }

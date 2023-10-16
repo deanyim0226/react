@@ -3,6 +3,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import productReducer from "./product/ProductReducer";
 import userReducer from "./user/UserReducer"
 import cartReducer from "./cart/CartReducer";
+import orderReducer from "./order/OrderReducer"
+
 import thunk from "redux-thunk";
 
 
@@ -11,6 +13,7 @@ const rootReducer = combineReducers({
     productReducer,
     userReducer,
     cartReducer,
+    orderReducer,
   
 })
 

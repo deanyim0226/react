@@ -23,7 +23,7 @@ let productReducer = (state = Initial_Product_State, action) =>{
         case ActionType.SendProductDetailsToStore:
             //... state : {Product, ...}
             return {...state, products : action.payload}
-        
+
         case ActionType.GetProductDetailsFromStore:
             return {...state, products : action.payload}
 

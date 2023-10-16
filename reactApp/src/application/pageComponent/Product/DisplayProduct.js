@@ -13,7 +13,7 @@ let DisplayProduct = (props)=>{
 
     useEffect(()=>{
      
-        products && products.length == 0 ? dispatchToDB(fetchDataFromDB()) : ""
+        dispatchToDB(fetchDataFromDB()) 
     },
     [])
 

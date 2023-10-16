@@ -10,6 +10,9 @@ import DisplayProduct from "../application/pageComponent/Product/DisplayProduct"
 import Product from "./pageComponent/Product";
 
 import Cart from "./pageComponent/Cart"
+import Checkout from "./pageComponent/Checkout";
+import Payment from "./pageComponent/Payment";
+import Order from "./pageComponent/Order";
 
 export default class Application extends Component{
     
@@ -34,6 +37,10 @@ export default class Application extends Component{
                         <Route path = "/shop" element = {<DisplayProduct/>}/>
                         <Route path = "/cart" element = {<Cart/>}/>
                         <Route path = "/product" element = {<Product/>}/>
+                        <Route path = "/checkout" element = {<Checkout/>}/>
+                        <Route path = "/payment" element = {<Payment/>}/>
+                        <Route path = "/order" element = {<Order/>}/>
+                     
                     </Routes>
                 <Footer/>
             </Router>
@@ -64,6 +71,7 @@ export default class Application extends Component{
 
 
 /*
+
 // 11-10-2023 - Recentorder Page 
 // Upon MakePayment Click
 // Save the cart to RecentOrders collection (should have userid, order, dateTime)
@@ -71,4 +79,35 @@ export default class Application extends Component{
 // Make a component RecentOrders to Show all previous Orders of current user
 // Add a button to Cancel (like) we have remove in CartComponent and then save again, 
 // order can be cancelled within 2 days after that it should be marked delivered
+
+
+// 10-10-2023 - Practice
+
+// Coupon Page 
+// Create a component with Name - CouponComponent (Functional Component and Use Hooks)
+// On the page add a Button - GenerateCoupon
+// Upon Click Generate a random coupon of - 6 digits (basically a numeric random value)
+// Dispatch this generated coupon using useDispatch
+// Create a Coupon Reducer to have Coupon Value, Use Reducer to update the coupon value (useSelector coupon)
+// Create action to pass coupon to reducer, with type and payload
+
+// Part 2 : 
+// Hide all the links except : Home, User and About for a user not logged-in
+// In Product Component show Save to product section only to a user with name "admin" so that not all users 
+// can insert the products to database 
+
+// 09-10-2023 - Practice
+
+// Checkout Component
+// Create A functional component and use react hook or using container to read data from store
+// Show - User Details (Name, address) //We will deliver products to below address kind of message as well
+// Show Table of cart put up for purchase (you need to re-use the cartlist and cartitem components)
+// Show the purchase Summary (total qty and total amount)
+// Show a Button to Proceed to Payment
+// Integrate this page on CartComponent Button (Go to checkout) -(Go To Checkout From Cart Component)
+
+// Second Task :
+// Create a state using useState to show hide (Make Payment Message)
+// Upon Clicking on MakePayment button, hide everything and just show the message - "Thankyou for the payment, your items under process!"
+// Change the header from Checkout Page to Payment Page
 */

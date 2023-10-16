@@ -25,7 +25,6 @@ export const updateItemFromCart = (id,qty) =>({
 
 export const saveCartToDb = (item,id) => {
 
-    console.log("comone")
     return function(dispatch){
     window.fetch("http://localhost:9000/cart/api/additem", {
         method: 'POST',
