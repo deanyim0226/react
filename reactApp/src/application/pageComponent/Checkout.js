@@ -7,6 +7,8 @@ import CartSummary from "./Cart/CartSummary"
 import CartItemComponent from "./Cart/CartItemComponent";
 import { saveOrderToDb } from "../state/order/OrderAction";
 
+import CheckoutSummary from "./Checkout/CheckoutSummary"
+
 /*
 // Checkout Component
 // Create A functional component and use react hook or using container to read data from store
@@ -35,8 +37,10 @@ const Checkout = () =>{
 
     let user = useSelector((state) => state.userReducer.user)
     let cartList = useSelector((state) => state.cartReducer)
-    let nevigate = useNavigate()
+    let couponList = useSelector((state)=>state.couponReducer)
+    let [discount,setDiscount] = useState(0)
 
+    let nevigate = useNavigate()
     let dispatchToDb = useDispatch()
 
     let back = (evt) =>{
@@ -62,19 +66,30 @@ const Checkout = () =>{
         evt.preventDefault()
     }
 
-    let recalculate = (cartItems) =>{
+    let recalculate = (cartItems,discount) =>{
 
-        let total = 0, qty = 0
+        let subTotal = 0, qty = 0, total = 0
+        const taxRate = 0.0725
 
         for(let item of cartItems){
             let sum = item.price * item.qty
-            total += sum
+            subTotal += sum
             qty += item.qty
         }
 
+        let discountRate = discount * 0.01
+        let discountAmount = subTotal * discountRate 
+        subTotal = subTotal - discountAmount
+        subTotal = Number(subTotal.toFixed(2))
+        let tax = taxRate * subTotal
+        tax = Number(tax.toFixed(2))
+        total = subTotal+ tax
+
         return {
-            total,
-            qty
+            subTotal,
+            tax,
+            qty,
+            total
         }
 
     }
@@ -107,15 +122,28 @@ const Checkout = () =>{
                     }
                 </tbody>
             </table>
-                <CartSummary data = {recalculate(cartList)}/>
-            
-                <h2>USER DETAIL</h2>
+                <CheckoutSummary data = {recalculate(cartList,discount)}/>
+                
+                    
+                <h2>SHIPPING ADDRESS</h2>
                 <p>Name: {user.firstName + user.lastName} </p>
                 <p>Address: {user.address} </p>
                 <p>We will deliver products to above information </p>
                 
                 <button onClick={back}>Back</button>
                 <button onClick={payment}>Payment</button>
+
+                <label>Discount</label>
+                <select defaultValue={discount} onChange={e => setDiscount(e.target.value)}> 
+                    
+                    {
+                        couponList.map((coupon)=>{
+                        
+                            return <option value={coupon.discount} key={coupon._id}> {coupon.discount}</option>
+                        })
+                    }
+                </select>
+           
             </>
 
             

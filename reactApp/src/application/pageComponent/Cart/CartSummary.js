@@ -6,7 +6,7 @@ let CartSummary = (props) =>{
         <>
         <h1>CART SUMMARY</h1>
         <div>
-            <p> Total : { props.data.total } </p>
+            <p> Total : ${ props.data.total } </p>
             <p> Total Quantity : {props.data.qty} </p>
         </div>
         </>
@@ -14,4 +14,4 @@ let CartSummary = (props) =>{
 }
 
 
-export default CartSummary
+export default React.memo(CartSummary)

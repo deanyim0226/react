@@ -10,6 +10,13 @@ import { useState, useEffect } from "react";
 // Add a button to Cancel (like) we have remove in CartComponent and then save again, 
 // order can be cancelled within 2 days after that it should be marked delivered
 
+// Coupon Page 
+// Create a component with Name - CouponComponent (Functional Component and Use Hooks)
+// On the page add a Button - GenerateCoupon
+// Upon Click Generate a random coupon of - 6 digits (basically a numeric random value)
+// Dispatch this generated coupon using useDispatch
+// Create a Coupon Reducer to have Coupon Value, Use Reducer to update the coupon value (useSelector coupon)
+// Create action to pass coupon to reducer, with type and payload
 
 const Payment = () =>{
 

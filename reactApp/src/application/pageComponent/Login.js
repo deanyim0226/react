@@ -23,32 +23,31 @@ const Login = () =>{
         }
     
         dispatchToDB(getUserFromDb(userInfo))
+        setTimeout(()=>{
+            navigate('/')
+        },1500)
         evt.preventDefault()
 
     }
 
-
     return (
         <>
-        <h1>LOGIN</h1>
-
-        <form className= {"form"} onSubmit={login}>
-
-            <label>
-                <b>Email : </b>
-                <input type="text" className={"input"} value={email}  onChange={ (evt) => {setEmail(evt.target.value)}}
+        <form className= {"form-login"} onSubmit={login}>
+            <h1>Sign in</h1>
+            <label >
+                <b>Email</b>
+                <input type="text" className="form-control" value={email}  onChange={ (evt) => {setEmail(evt.target.value)}}
                 placeholder="Email" maxLength={50} required/>
             </label>
             <br/>
             <label>
-                <b>Password :</b>
-                <input type="password" className={"input"} value={password}  onChange={ (evt) => {setPassword(evt.target.value)}}
+                <b>Password</b>
+                <input type="password" className="form-control" value={password}  onChange={ (evt) => {setPassword(evt.target.value)}}
                 placeholder="Password is required" maxLength={50} required/>
             </label>
             <br/>
-                <input type="submit" className={"button"} value="SignIn" />
+            <button className="btn btn-warning" >Coninue </button>
             <br/>
-
         </form>
         </>
     )

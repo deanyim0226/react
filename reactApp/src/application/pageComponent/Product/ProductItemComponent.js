@@ -19,28 +19,36 @@ let ProductItemComponent = (props) =>{
     }
 
     return(
-   
-        <ul className="product">
-    
-            <li className="product" onClick={()=>toggleShowHide(!showHide)}>
-            {props.product.name}
-                {showHide ? 
-                    <ul>
-                    <li> price: {props.product.price}</li>
-                    <li> description: {props.product.description}</li>
-                    <li> rating: {props.product.rating}</li> 
-                    
-                    <button onClick={()=>{addProductToCart(props.product)}}>Add To Cart</button>
-                    
-                    </ul>
-                : 
-                " "} 
-            </li>
-            
-        </ul>
-            
- 
+        
+        <div className="card border-dark mb-3">
+            <div class="row g-0">
+            <div class="col-md-4">
+            <img src="" class="img-fluid rounded-start" alt="..."/>
+            </div>
+            <div class="col-md-8">
+                <div className="card-body">
+                    <p className="product" onClick={()=>toggleShowHide(!showHide)}>
+                    <h4 className="card-title">{props.product.name}</h4>
+                        {showHide ? 
+                            <div>
+
+                                <p className="card-text"> Description: {props.product.description}</p>
+                                <p className="card-text"> Price: {props.product.price}</p>
+                                <p className="card-text"> Rating: {props.product.rating}</p> 
+                                <div className="card-footer bg-transparent border-success">
+                                <button className="btn btn-warning" onClick={()=>{addProductToCart(props.product)}}>Add To Cart</button>
+                                </div>
+
+                            </div>
+                        : 
+                        " "} 
+                    </p>
+                </div>
+            </div>
+            </div>
+        </div>
+  
     )
 }
 
-export default ProductItemComponent
+export default React.memo(ProductItemComponent)

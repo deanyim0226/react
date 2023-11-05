@@ -37,40 +37,47 @@ const Profile = () =>{
   
     return(
         <>
-        <h1>USER PROFILE</h1>
-        {
-            user.email.length >= 1 ?
-            <form className={"form"} onSubmit={update}>                
-                <label>
-                    <b>First Name : </b>
-                    <input type="text" className={"input"} ref={firstNameRef}  
-                    placeholder="First Name" maxLength={20} />
+
+
+            <form className="form-profile" onSubmit={update}>                
+            <h1>USER PROFILE</h1>
+            <form class="row g-3">
+                <div class="col-md-6">
+                <label className="form-label">
+                <b>Frist name </b>
+                <input type="text" className= "form-control" ref={firstNameRef}  
+                        placeholder="First name" maxLength={20} />
                 </label>
-        
-                <label>
-                    <b>Last Name :</b>
-                    <input type="text" className={"input"} ref={lastNameRef}  
-                            placeholder="Last Name" maxLength={20} />
+                </div>   
+                <div class="col-md-6">
+                <label className="form-label">
+                <b>Last name </b>
+                <input type="text" className= "form-control" ref={lastNameRef}  
+                        placeholder="Last name" maxLength={20} />
                 </label>
-           
-                <label>
-                    <b>Address :</b>
-                    <input type="text" className={"input"} ref={addressRef}  
-                            placeholder="Address" maxLength={50} />
-                </label>
-          
-                <label>
-                    <b>mobile :</b>
-                    <input type="text" className={"input"} ref={mobileRef}  
-                            placeholder="Mobile" maxLength={13} />
-                </label>
-    
-                <input type="submit" className={"button"} value="Update" />
+                </div>   
+            </form>
+      
+            <div class="col-md-12">
+            <label for="inputEmail4" class="form-label"> <b>Address </b></label>
+            <input type="text" class="form-control"ref={addressRef}  
+                                placeholder="Address" maxLength={50}/>
+            </div>
+
+            <div class="col-md-12">
+            <label for="inputEmail4" class="form-label"> <b>Mobile </b></label>
+            <input type="text" class="form-control"ref={mobileRef}  
+                            placeholder="Mobile" maxLength={13}/>
+            </div>
+
+            <br>
+            </br>
+              
+            <button className="btn btn-warning" >Update </button>
     
         </form>
             
-            : ""
-        }
+  
         </>
     )
 

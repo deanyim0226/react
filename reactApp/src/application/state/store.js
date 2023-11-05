@@ -4,9 +4,9 @@ import productReducer from "./product/ProductReducer";
 import userReducer from "./user/UserReducer"
 import cartReducer from "./cart/CartReducer";
 import orderReducer from "./order/OrderReducer"
-
+import couponReducer from "./coupon/CouponReducer"
+import cancelReducer from "./cancelledOrder/CancelReducer";
 import thunk from "redux-thunk";
-
 
 //combine reducer is used to combine all the reducers we need in our store/state
 const rootReducer = combineReducers({
@@ -14,6 +14,8 @@ const rootReducer = combineReducers({
     userReducer,
     cartReducer,
     orderReducer,
+    couponReducer,
+    cancelReducer
   
 })
 

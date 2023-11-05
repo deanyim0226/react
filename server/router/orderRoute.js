@@ -4,11 +4,13 @@ const orderRoute = express.Router()
 const orderDataModel = require("../data_model/orderDataModel")
 
 orderRoute.delete("/api/delete", (req,res)=>{
-    let orderid = req.orderid
+    let orderid = req.body.orderid
 
-    orderDataModel.deleteOne(({_id:orderid}))
+    orderDataModel.deleteOne({_id:orderid})
     .then((result)=>{
+     
         console.log("we successfully deleted the item " + result )
+        res.send(result)
     })
     .catch((err)=>{
         console.log("error happened while deleting " + err)

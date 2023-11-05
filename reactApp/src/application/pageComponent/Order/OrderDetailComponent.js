@@ -16,4 +16,4 @@ let OrderDetailComponent = (props) =>{
     )
 }
 
-export default OrderDetailComponent
+export default React.memo(OrderDetailComponent)

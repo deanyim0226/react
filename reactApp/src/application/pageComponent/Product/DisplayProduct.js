@@ -18,17 +18,25 @@ let DisplayProduct = (props)=>{
     [])
 
     return(
-        <>
+        <div className="container">
+            <br></br>
+            <div className="row">
+            
             {
+                
                 products && products.length >= 1 ? 
+                
                     products.map((product)=>{
-                        return <ProductItemComponent product={product} key ={product._id} />
+                        return  <div className="col-md-4 col-sm-6 my-2" key={product._id}>
+                                <ProductItemComponent product={product} />
+                        </div>
                     })
 
                 :<h2>No Products To Show</h2>
             }
-        </>
+            </div>
+        </div>
     )
 }
 
-export default DisplayProduct;
+export default React.memo(DisplayProduct);

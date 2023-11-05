@@ -14,7 +14,7 @@ export const emptyOrder = () =>({
 })
 
 export const deleteOrderFromDb = (orderid) =>{
-    console.log("delete order from db is called")
+    console.log("delete order from db is called " + orderid)
     return function(dispatch){
 
         window.fetch("http://localhost:9000/order/api/delete",{
@@ -27,8 +27,9 @@ export const deleteOrderFromDb = (orderid) =>{
         })
         .then(response =>response.json())
         .then((response) =>{
-            //dispatch()
-            console.log("successfully deleted order from dm " + response)
+    
+            dispatch(deleteOrder(orderid))
+            console.log("successfully deleted order from dm ")
         })
         .catch((err)=>{
             console.log("error while deleting order from db " + err)

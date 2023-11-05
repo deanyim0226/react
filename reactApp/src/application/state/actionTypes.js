@@ -19,3 +19,10 @@ export const AddCartToRecentOrder = "ORDER.ADDCART"
 export const GetRecentOrder = "ORDER.GETRECENTORDER"
 export const DeleteRecentOrder = "ORDER.DELETERECENTORDER"
 export const EmptyOrder = "ORDER.EMPTYRECENTORDER"
+
+//Coupon
+export const GenerateCoupon = "COUPON.GENERATECOUPON"
+
+//Cancel
+export const AddOrderToCancelledOrder = "CANCEL.ADDORDER"
+export const EmptyCancelledOrder = "CANCEL.EMPTYORDER"

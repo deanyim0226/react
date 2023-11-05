@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom"
 import CartItemComponent from "./Cart/CartItemComponent"
 import CartSummary from "./Cart/CartSummary"
 import {saveCartToDb} from "../state/cart/CartAction"
+import Coupon from "./Coupon"
+
+import CouponItemCommponent from "./Coupon/CouponItemComponent";
+
 /*
 // Cart Implementation
 // Create New Cart Component using react hooks, functional component
@@ -21,7 +25,7 @@ const Cart = (props) =>{
 
     console.log(user)
     console.log(cartList)
-
+    
     let dispatchToDB = useDispatch()
     let navigate = useNavigate();
 
@@ -95,11 +99,12 @@ const Cart = (props) =>{
                 <Fragment>
                     <button onClick={saveCart}>Save Cart</button>
                     <button onClick={checkOut}>Checkout</button>
+                    
                 </Fragment>   
             }
             </>
             : <h2>Please add items to cart</h2>
-      
+            
         }
        
         </>

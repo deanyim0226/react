@@ -36,4 +36,4 @@ let CartItemComponent = (props) =>{
     )
 }
 
-export default CartItemComponent
+export default React.memo(CartItemComponent)

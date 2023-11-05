@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact=self.webpackChunkreact||[]).push([[720],{5720:(e,t,n)=>{n.r(t),n.d(t,{default:()=>a});var l=n(5466);n(2255);const a=function(){return l.createElement(l.Fragment,null,l.createElement("h1",null,"Payment PAGE "),l.createElement("h2",null,"UNDER DEVELOPMENT"))}}}]);
