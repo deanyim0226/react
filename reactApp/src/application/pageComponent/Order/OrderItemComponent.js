@@ -42,6 +42,7 @@ let OrderItemComponent = (props) =>{
         console.log(order.userid)
         console.log(order.order)
         dispatchToDb(deleteOrderFromDb(order._id))
+        
         let currentTime = new Date()
      
         let obj ={

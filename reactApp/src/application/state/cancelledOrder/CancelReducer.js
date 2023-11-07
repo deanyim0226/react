@@ -10,6 +10,9 @@ let cancelReducer = (state = Inital_Cancelled_Order, action) =>{
 
         case actionTypes.AddOrderToCancelledOrder:
             return [...state, action.payload]
+        case actionTypes.DeleteCancelledOrder:
+
+            return state.filter(item => item._id != action.payload)
         
         case actionTypes.EmptyCancelledOrder:
             return []

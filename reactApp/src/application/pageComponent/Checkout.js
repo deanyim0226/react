@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import CartSummary from "./Cart/CartSummary"
 import CartItemComponent from "./Cart/CartItemComponent";
+import { emptyCart, saveCartToDb } from "../state/cart/CartAction";
 import { saveOrderToDb } from "../state/order/OrderAction";
 
 import CheckoutSummary from "./Checkout/CheckoutSummary"
@@ -61,7 +62,10 @@ const Checkout = () =>{
         }
 
         dispatchToDb(saveOrderToDb(orderInformation))
-
+        //clean up the cart after payment
+        dispatchToDb(emptyCart())
+        cartList = []
+        dispatchToDb(saveCartToDb(cartList,user._id))
         //nevigate('/payment')
         evt.preventDefault()
     }

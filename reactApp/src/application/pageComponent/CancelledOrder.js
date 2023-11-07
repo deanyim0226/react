@@ -23,30 +23,35 @@ let CancelledOrder = (props) =>{
 // Make a component CancelledOrders to Show all cancelled Orders of current user in Latest First
 // Add a button to Buy Again, (also show a message - This offer is much more exciting)
 // Upon Adding this should get appended to the existing Cart that is shown in Carts App
+
     console.log(cancelledOrder)
 
     return (
         <>
         <h1>Cancelled Order</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Date</th>
-                    <th>Option</th>
-                </tr>
-            </thead>
-            <tbody>
-      
-                {
-                    cancelledOrder.map((item)=>{
+        {   
+            cancelledOrder && cancelledOrder.length >= 1 ?
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+        
+                    {
+                        cancelledOrder.map((item)=>{
 
-                        return <CancelledOrderDetailCoponent item ={item} key={item._id}/>
-                    })
-                
-                }
-            </tbody>
-        </table>
+                            return <CancelledOrderDetailCoponent item ={item} key={item._id}/>
+                        })
+                    
+                    }
+                </tbody>
+            </table>
+            :""
+        }
         </>
     )
 

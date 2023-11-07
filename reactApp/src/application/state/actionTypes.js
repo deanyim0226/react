@@ -26,3 +26,4 @@ export const GenerateCoupon = "COUPON.GENERATECOUPON"
 //Cancel
 export const AddOrderToCancelledOrder = "CANCEL.ADDORDER"
 export const EmptyCancelledOrder = "CANCEL.EMPTYORDER"
+export const DeleteCancelledOrder = "CANCEL.DELETECANCELLEDORDER"

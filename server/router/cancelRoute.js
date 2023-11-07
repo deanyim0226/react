@@ -3,6 +3,19 @@ const cancelRoute = express.Router()
 
 const cancelDataModel = require("../data_model/cancelDataModel")
 
+cancelRoute.delete("/api/deleteCancelledOrder", (req,res)=>{
+    
+    cancelDataModel.deleteOne({_id:req.body.orderid})
+    .then((result)=>{
+     
+        console.log("we successfully deleted cancelled item " + result )
+        res.send(result)
+    })
+    .catch((err)=>{
+        console.log("error happened while deleting cancelled item  " + err)
+    })
+})
+
 cancelRoute.post("/api/saveCancelledOrder", (req,res)=>{
     console.log("api is called from client")
     cancelDataModel.findOne({userid:req.body.userid})

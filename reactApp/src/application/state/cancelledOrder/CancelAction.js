@@ -5,9 +5,37 @@ export const addCancelledOrder = (order) =>({
     payload: order
 })
 
+export const deleteCancelledOrder = (id)=>({
+    type: actionTypes.DeleteCancelledOrder,
+    payload: id
+})
+
 export const emptyCancelledOrder = () =>({
     type: actionTypes.EmptyCancelledOrder
 })
+
+export const deleteCancelledOrderFromDb = (id)=>{
+
+    return function(dispatch){
+        window.fetch("http://localhost:9000/cancel/api/deleteCancelledOrder",{
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({orderid:id})
+        })
+        .then(response =>response.json())
+        .then((response) =>{
+    
+            dispatch(deleteCancelledOrder(id))
+            console.log("successfully deleted cancelled order from dm ")
+        })
+        .catch((err)=>{
+            console.log("error while deleting cancelled order from db " + err)
+        })
+    }
+}
 
 export const getCancelledOrderFromDb = (userid) =>{
 

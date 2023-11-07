@@ -29,6 +29,11 @@ const Cart = (props) =>{
     let dispatchToDB = useDispatch()
     let navigate = useNavigate();
 
+
+    useEffect(()=>{
+      
+    },[])
+
     let recalculate = (cartItems) =>{
 
         let total = 0, qty = 0
@@ -63,7 +68,6 @@ const Cart = (props) =>{
 
         <>
         <h1>Cart</h1>
- 
         {   
             cartList && cartList.length >= 1 ? 
             <>

@@ -1,5 +1,9 @@
 import React from "react";
 import OrderDetailComponent from "./OrderDetailComponent";
+import { addItemToCart } from "../../state/cart/CartAction";
+import { useDispatch } from "react-redux";
+import { deleteCancelledOrderFromDb } from "../../state/cancelledOrder/CancelAction";
+
 let CancelledOrderDetailCoponent = (props) =>{
 
     let item = props.item
@@ -7,9 +11,16 @@ let CancelledOrderDetailCoponent = (props) =>{
 // Reorder
 // User to reorder from recent orders or from cancelled orders
 // A Simple process just add the order to your cart and replace or merge whatever is present in cart
+    let dispatchToDb = useDispatch()
 
     let buyAgain = () =>{
-        console.log("buy agian is clciked")
+        
+        for(const item of item.order){
+            dispatchToDb(addItemToCart(item))
+        }
+        
+        dispatchToDb(deleteCancelledOrderFromDb(item._id))
+
     }
 
     console.log(item.order.date)
