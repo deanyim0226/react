@@ -23,10 +23,42 @@ export const getDetailsFromStore = (product) =>{
     }
 }
 
+export const getSingleProductFromStore = (product) =>{
+    return {
+        type: actionTypes.GetSingleProductDetailsFromStore,
+        payload: product
+    }
+}
+
+export const getProductFromDb =(productId) =>{
+    return (dispatch) => {
+        window.fetch("http://localhost:9000/shop/api/getproduct",
+        {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({productId:productId})
+        })
+        .then(response => response.json())
+        .then((response) =>{
+            console.log("found the product "+ response)
+            dispatch(getSingleProductFromStore(response))
+        })
+        .catch((err)=>{
+            console.log("Error while getting product ", err)
+        })
+    
+    }
+       
+    
+} 
+
 export const fetchDataFromDB = () =>{
 
     return (dispatch) =>{
-        window.fetch("http://localhost:9000/shop/api/getproduct",{
+        window.fetch("http://localhost:9000/shop/api/getproducts",{
             method: 'GET'
         })
         .then(response => response.json())

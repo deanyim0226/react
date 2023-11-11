@@ -31,18 +31,20 @@ let Header = (props) =>{
                 </a>
                 <ul class="dropdown-menu">
                     {
-                        user && user.email.length <= 0 ? 
+                       user && user.email.length <= 0
+                          ? 
                         <>
                         <NavLink to = "/login" className= "dropdown-item" activeclassname = "success">Sign in</NavLink>
                         <NavLink to = "/register" className= "dropdown-item" activeclassname = "success">Register</NavLink>
-                        </>
+                      </>
                         : 
-                        <>
+                       <>
                         <NavLink to = "/profile" className ="dropdown-item" activeclassname = "success">Profile</NavLink>
                         <NavLink to = "/coupon" className= "dropdown-item" activeclassname = "success">Coupon</NavLink>
                         <NavLink to = "/cart" className="dropdown-item" activeclassname ="success">Cart</NavLink>
                         <NavLink to = "/order" className= "dropdown-item" activeclassname ="success">Order</NavLink>
                         <NavLink to = "/cancelledOrder" className= "dropdown-item" activeclassname ="success">Cancelled Order</NavLink>
+                        
                         <NavLink to = "/logout" className= "dropdown-item" activeclassname = "success">Logout</NavLink>
        
                             <>

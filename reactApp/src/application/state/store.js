@@ -6,6 +6,7 @@ import cartReducer from "./cart/CartReducer";
 import orderReducer from "./order/OrderReducer"
 import couponReducer from "./coupon/CouponReducer"
 import cancelReducer from "./cancelledOrder/CancelReducer";
+import reviewReducer from "./review/ReviewReducer";
 import thunk from "redux-thunk";
 
 //combine reducer is used to combine all the reducers we need in our store/state
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
     cartReducer,
     orderReducer,
     couponReducer,
-    cancelReducer
+    cancelReducer,
+    reviewReducer
   
 })
 

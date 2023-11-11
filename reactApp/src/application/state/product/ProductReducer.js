@@ -27,6 +27,8 @@ let productReducer = (state = Initial_Product_State, action) =>{
         case ActionType.GetProductDetailsFromStore:
             return {...state, products : action.payload}
 
+        case ActionType.GetSingleProductDetailsFromStore:
+            return {products: action.payload}
         default:
             return state
     }

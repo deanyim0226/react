@@ -40,12 +40,13 @@ const Order = (props) =>{
     return(
 
         <>
+        <div className="container-fluid">
         <h1>RECENT ORDER</h1>
-        <h4>USER ID : {user._id}</h4>
+        <h4>USER NAME : {user.lastName} {user.firstName}</h4>
         {
             orderList ?
             <>
-                <table>
+                <table className="table table-bordered">
                     <thead>
                         <tr>
                             <th>Order</th>
@@ -54,12 +55,12 @@ const Order = (props) =>{
                                 props.readOnly ?  "" : //bydefault false as boolean default is false
                                 <Fragment>
                                     <th>Status</th>
-                                    <th>Edit</th>
+                                    <th>Action</th>
                                 </Fragment>
                             }
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="table-group-divider">
                   
                         {
                            orderList.map((order)=>{
@@ -73,7 +74,7 @@ const Order = (props) =>{
             </>
             : ""
         }
-        
+        </div>
         </>
     )
 

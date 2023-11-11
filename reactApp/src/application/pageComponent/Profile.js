@@ -39,7 +39,7 @@ const Profile = () =>{
         <>
 
 
-            <form className="form-profile" onSubmit={update}>                
+        <form className="form-profile" onSubmit={update}>                
             <h1>USER PROFILE</h1>
             <form class="row g-3">
                 <div class="col-md-6">

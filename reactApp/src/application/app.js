@@ -19,6 +19,9 @@ let Logout = lazy(()=> import( "./pageComponent/Logout"));
 
 let Coupon = lazy(()=> import ("./pageComponent/Coupon"));
 
+import Review from "./pageComponent/Review"
+import ReivewFormComponent from "./pageComponent/Review/ReviewFormComponent";
+
 /*
 import Header from "./commonComponent/Header";
 import Footer from "./commonComponent/Footer";
@@ -64,6 +67,8 @@ export default class Application extends Component{
                         <Route path= "/logout" element = {<Logout/>}/>
                         <Route path= "/coupon" element ={<Coupon/>}/>
                         <Route path= "/cancelledOrder" element = {<CancelledOrder/>}/>
+                        <Route path= "/review/:id" element = {<Review/>}/>
+                        <Route path="/review/write/:id" element = {<ReivewFormComponent/>}/>
                     </Routes>
 
            

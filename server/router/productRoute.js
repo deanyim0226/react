@@ -6,10 +6,19 @@ const productDataModel = require("../data_model/productDataModel")
 productRouter.post("/api/sendDetail", (req, res) =>{
     let product = req.body
 
-    productDataModel.findOne({name:req.body.name}).then((existingProduct) =>{
+    productDataModel.findOne({name:product.name}).then((existingProduct) =>{
         
         if(existingProduct){
-
+            /*
+            if(product.review){
+                existingProduct.product.reviews.push(product.review)
+                existingProduct.save().then((updatedProduct) =>{
+                    res.send(updatedProduct)
+                }).catch((err)=>{
+                    res.send("error")
+                })
+            }
+            */
             res.send(product)
         }else{
     
@@ -28,7 +37,7 @@ productRouter.post("/api/sendDetail", (req, res) =>{
 
 })
 
-productRouter.get("/api/getProduct" , (req,res)=>{
+productRouter.get("/api/getProducts" , (req,res)=>{
 
     productDataModel.find().then((allProduct) =>{
         console.log(allProduct)
@@ -38,5 +47,16 @@ productRouter.get("/api/getProduct" , (req,res)=>{
     })
 })
 
+
+productRouter.post("/api/getProduct" , (req,res)=>{
+
+    productDataModel.findOne({_id:req.body.productId})
+    .then((product) =>{
+        console.log(product)
+        res.send(product)
+    }).catch((err)=>{
+        res.send(err)
+    })
+})
 
 module.exports = productRouter

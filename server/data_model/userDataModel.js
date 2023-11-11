@@ -12,7 +12,9 @@ let userSchema = new schemaObj({
     lastName: String,
     address: String,
     mobile: Number,
-    admin: {type:Boolean, default:false}
+    reviewableProduct: Array,
+    admin: {type:Boolean, default:false},
+    login: {type:Boolean, default:false}
 })
 
 

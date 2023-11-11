@@ -20,6 +20,11 @@ const couponApp = express()
 const cancelRoute = require("./router/cancelRoute")
 const cancelApp = express()
 
+const reviewRoute = require("./router/reviewRoute")
+const reviewApp =express()
+
+
+
 const app = express()
 app.use(cors()) // middleware to expose api for other users as public
 app.use(express.json({limit:'2mb',extended:false}))//json middle-ware for setting request content type to json in body
@@ -41,6 +46,10 @@ couponApp.use('/', couponRoute)
 
 app.use('/cancel', cancelRoute)
 cancelApp.use('/',cancelRoute)
+
+app.use('/review',reviewRoute)
+reviewApp.use('/',reviewRoute)
+
 
 app.listen(9000)
 console.log("listen to 9000 port")

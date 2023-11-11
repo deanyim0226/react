@@ -10,25 +10,44 @@ let CartItemComponent = (props) =>{
 
     let dispatchItem = useDispatch();
 
+    let increaseQuantity = () =>{
+        setQuantity(++quantity)
+        dispatchItem(updateItemFromCart(item._id, quantity))
+    }
+
+    let decreaseQuantity = () =>{
+        if(quantity > 1){
+            setQuantity(--quantity)
+            dispatchItem(updateItemFromCart(item._id, quantity))
+        }
+    }
+
     return(
       
          <tr>
             <td>{item.name}</td>
-            <td>{item.price}</td>
+            <td>${item.price}</td>
             <td>{item.description}</td>
             <td>{item.rating}</td>
             <td>
             {
                 props.readOnly ? quantity 
                 :
-                <input type="text" value={quantity} onChange={(evt)=>{setQuantity(evt.target.value)}}></input>    
+                <Fragment>
+                    
+                    <td>  <button  onClick={decreaseQuantity}> -  </button></td>
+                    <td> &nbsp; {quantity} &nbsp; </td>
+                    <td>  <button  onClick={increaseQuantity}> +  </button> </td> 
+            
+                </Fragment>
+                  
             }</td>
-            <td>{item.qty*item.price}</td>
+            <td>${item.qty*item.price}</td>
             {
                 props.readOnly ?  "" : //bydefault false as boolean default is false
                     <Fragment>
-                        <td><button onClick={()=>dispatchItem(deleteItemFromCart(item._id))}>Remove</button> </td>
-                        <td><button onClick={()=>dispatchItem(updateItemFromCart(item._id, quantity))}>Update</button></td>
+                        <td><button className="btn btn-warning" onClick={()=>dispatchItem(deleteItemFromCart(item._id))}>Remove</button> </td>
+                    
                     </Fragment>
             }
         </tr>

@@ -28,18 +28,19 @@ let CancelledOrder = (props) =>{
 
     return (
         <>
+        <div className="container-fluid">
         <h1>Cancelled Order</h1>
         {   
             cancelledOrder && cancelledOrder.length >= 1 ?
-            <table>
+            <table  className="table table-bordered">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Date</th>
-                        <th>Option</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-group-divider">
         
                     {
                         cancelledOrder.map((item)=>{
@@ -52,6 +53,7 @@ let CancelledOrder = (props) =>{
             </table>
             :""
         }
+        </div>
         </>
     )
 

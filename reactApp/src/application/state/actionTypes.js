@@ -7,6 +7,7 @@ export const UpdateUserInfo = "USER.UPDATE"
 //PRODUCT
 export const SendProductDetailsToStore = "PRODUCT.ADDPRODUCTTOSTORE"
 export const GetProductDetailsFromStore = "PRODUCT.GETPRODUCTFROMSTORE"
+export const GetSingleProductDetailsFromStore = "PRODUCT.GETSINGLEPRODUCT"
 
 //CART
 export const AddItemToCart = "CART.ADDITEM"
@@ -27,3 +28,8 @@ export const GenerateCoupon = "COUPON.GENERATECOUPON"
 export const AddOrderToCancelledOrder = "CANCEL.ADDORDER"
 export const EmptyCancelledOrder = "CANCEL.EMPTYORDER"
 export const DeleteCancelledOrder = "CANCEL.DELETECANCELLEDORDER"
+
+//Review
+export const SaveReview = "REVIEW.SAVE"
+export const GetReviews = "REVIEW.GET"
+export const EmptyReviews = "REVIEW.EMPTY"

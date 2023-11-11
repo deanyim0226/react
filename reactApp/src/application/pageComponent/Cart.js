@@ -36,15 +36,23 @@ const Cart = (props) =>{
 
     let recalculate = (cartItems) =>{
 
-        let total = 0, qty = 0
+        let total = 0, qty = 0, items ="", products = new Set()
+
 
         for(let item of cartItems){
             let sum = item.price * item.qty
             total += sum
             qty += item.qty
+
+            products.add(item.name)
         }
 
+        for(const name of products){
+            items += name
+            items += " "
+        }
         return {
+            items,
             total,
             qty
         }
@@ -67,50 +75,52 @@ const Cart = (props) =>{
     return(
 
         <>
-        <h1>Cart</h1>
+        <div class="container-fluid">
+
+        <h1 class="align-middle">Cart</h1>
         {   
             cartList && cartList.length >= 1 ? 
             <>
-            <table>
+            <table className="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                        <th>Rating</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
+                        <th scope="col" >Item</th>
+                        <th scope="col" >Price</th>
+                        <th scope="col">Description</th>
+                        <th scope="col" >Rating</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">SubTotal</th>
                         {
                             props.readOnly ?  "" : //bydefault false as boolean default is false
                             <Fragment>
-                                <th>Remove</th>
-                                <th>Edit</th>
+                                <th scope="col">Action</th>
                             </Fragment>
                         }
                     </tr>
                 </thead>
-                <tbody>
+                <tbody  class="table-group-divider">
                     {
                         cartList.map((item) =>{
                             return <CartItemComponent item ={item} key = {item._id}/>
                         })
                     }
+                    <Fragment>
+                    <button className="btn btn-warning" onClick={saveCart}>Save Cart</button>
+                    </Fragment>   
                 </tbody>
             </table>
             
             <CartSummary data = {recalculate(cartList)}/>
             {
                 <Fragment>
-                    <button onClick={saveCart}>Save Cart</button>
-                    <button onClick={checkOut}>Checkout</button>
-                    
+                    <button className="btn btn-warning" onClick={checkOut}>Checkout</button>
                 </Fragment>   
             }
             </>
             : <h2>Please add items to cart</h2>
             
         }
-       
+        </div>
         </>
         
     )

@@ -41,8 +41,14 @@ export const updateUserToDb = (updatedUser) =>{
         .then(response => response.json())
         .then((response) =>{
             console.log("we updated to the db " + response)
+       
             dispatch(updateUser(response))
-            alert("Successfully updated")
+            if(!updatedUser.reviewableProduct){
+                alert("Successfully updated")
+            }else{
+                alert("Now you can review those products that you ordered")
+            }
+  
         }).catch((err)=>{
             console.log("Error while fetching user" , err)
         })

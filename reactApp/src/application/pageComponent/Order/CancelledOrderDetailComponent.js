@@ -36,7 +36,7 @@ let CancelledOrderDetailCoponent = (props) =>{
                 </td>
                 <td>{item.date}</td>
 
-                <td><button onClick={buyAgain}>BuyAgain</button></td>
+                <td><button className="btn btn-warning" onClick={buyAgain}>BuyAgain</button></td>
             </tr> 
         </>
     )

@@ -11,7 +11,7 @@ let OrderDetailComponent = (props) =>{
 
     return(
         <>
-           {item.name} 
+          <td>{item.name } &nbsp;</td> 
         </>
     )
 }
