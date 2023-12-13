@@ -3,7 +3,7 @@
 
 ## Product Implementation
 
-Each Product should have general fields, like Name, Description, Rating, Price, Category (New Product Document/ Collection)
+Markup: * Each Product should have general fields, like Name, Description, Rating, Price, Category (New Product Document/ Collection)
 In Product component each item when we click to display details should also have a button "Add To Item" on click should add to New Cart
 Cart Implementation
 
