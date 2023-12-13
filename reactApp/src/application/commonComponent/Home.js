@@ -17,18 +17,54 @@ const Home = () => {
    
     return(
         <>
+        <div className="content-wrap" >
 
         { 
             
             user.email.length >= 1 && user.firstName.length >= 1 && user.lastName.length >= 1? 
-            <h1>WELCOME {user.firstName + user.lastName}  {couponList}</h1>
-            : <div>
-                <h2>WELCOME TO OUR WEBSITE</h2>
-                <h3>USER ACCOUNT IS REQUIRED TO USE OUR WEBSITE</h3>
-                {couponList}
+ 
+            <div class="container text-center">
+            <h3> WELCOME&nbsp;BACK &nbsp;{user.firstName}&nbsp;{user.lastName} </h3>
+                <div class="row g-2">
+
+                    <div class="col-6">
+                    <img  src="https://img.freepik.com/free-photo/woman-with-shopping-bags_329181-8871.jpg?t=st=1700373218~exp=1700373818~hmac=0a252609ca986f6454952faa692a120773a2a3513fc19685b91e5a83fb7b519a"/>
+                    </div>
+                    <div class="col-6">
+                    <img  src="https://img.freepik.com/free-photo/woman-holds-fashion-shopping-bag-beauty_1150-13673.jpg?t=st=1700372424~exp=1700373024~hmac=a8ab5733cdf95cea10ee692e6993b98864df3b33d873d64041aaaea7eebfe9fb"/>
+                    </div>
+                    <div class="col-6">
+                    <img   src="https://img.freepik.com/free-photo/black-friday-elements-assortment_23-2149074075.jpg?t=st=1700372424~exp=1700373024~hmac=b166431b9068deb6aeb6bb227283b4a458c6ab4099c87deb7e0dd8b4b2710702"/>
+                    </div>
+                    <div class="col-6">
+                    <img  src="https://img.freepik.com/free-photo/female-friends-out-shopping-together_53876-25041.jpg?t=st=1700372424~exp=1700373024~hmac=f0dacb718af6cb5d13bf5cb81f0fcdc8de7282163951461945f1fd1f60fb7e27"/>
+                    </div>
+                </div>
             </div>
+       
+            : 
             
+            <div class="container text-center">
+                 <h3>WELCOME TO SHOPPING WEBSITE,   USER ACCOUNT IS REQUIRED TO USE OUR WEBSITE</h3>
+                <div class="row g-2">
+            
+                    <div class="col-6">
+                    <img src="https://img.freepik.com/free-photo/woman-with-shopping-bags_329181-8871.jpg?t=st=1700373218~exp=1700373818~hmac=0a252609ca986f6454952faa692a120773a2a3513fc19685b91e5a83fb7b519a"/>
+                    </div>
+                    <div class="col-6">
+                    <img src="https://img.freepik.com/free-photo/woman-holds-fashion-shopping-bag-beauty_1150-13673.jpg?t=st=1700372424~exp=1700373024~hmac=a8ab5733cdf95cea10ee692e6993b98864df3b33d873d64041aaaea7eebfe9fb"/>
+                    </div>
+                    <div class="col-6">
+                    <img src="https://img.freepik.com/free-photo/black-friday-elements-assortment_23-2149074075.jpg?t=st=1700372424~exp=1700373024~hmac=b166431b9068deb6aeb6bb227283b4a458c6ab4099c87deb7e0dd8b4b2710702"/>
+                    </div>
+                    <div class="col-6">
+                    <img src="https://img.freepik.com/free-photo/female-friends-out-shopping-together_53876-25041.jpg?t=st=1700372424~exp=1700373024~hmac=f0dacb718af6cb5d13bf5cb81f0fcdc8de7282163951461945f1fd1f60fb7e27"/>
+                    </div>
+                </div>
+            </div>
+
             }
+                    </div>
         </>
     )
 }

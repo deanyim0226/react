@@ -1,6 +1,6 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { useState } from "react"
+import { useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom";
 
 import { addItemToCart } from "../../state/cart/CartAction"
@@ -8,10 +8,15 @@ import Review from "../Review"
 
 let ProductItemComponent = (props) =>{
     let user = useSelector((state) => state.userReducer.user);
-
+    let product = props.product
     let [showHide, toggleShowHide] = useState(false)
+  
     let dispatchToAddProduct = useDispatch();
     let nevigate = useNavigate()
+
+    useEffect(()=>{
+
+    },[])
 
     let addProductToCart = ( product )=>{
         if(!user._id){
@@ -26,22 +31,32 @@ let ProductItemComponent = (props) =>{
     }
 
     return(
-        
+        <div className="content-wrap" >
         <div className="card border-dark mb-3">
-            <div class="row g-0">
-            <div class="col-md-4">
-            <img src="" class="img-fluid rounded-start" alt="..."/>
-            </div>
-            <div class="col-md-8">
+    
+            <img src={props.product.url} class="card-img-top" alt="..." onClick={()=>toggleShowHide(!showHide)}/>
+         
+  
                 <div className="card-body">
                     <p className="product" onClick={()=>toggleShowHide(!showHide)}>
-                    <h4 className="card-title">{props.product.name}</h4>
+                    <h4 className="card-title">{product.name}</h4>
                         {showHide ? 
                             <div>
 
-                                <p className="card-text"> Description: {props.product.description}</p>
-                                <p className="card-text"> Price: {props.product.price}</p>
-                                <p className="card-text"> Rating: {props.product.rating}</p> 
+                                <p className="card-text"> <b>Description:</b> {product.description}</p>
+                                <p className="card-text"> <b>Price: </b> ${product.price}</p>
+                                <p className="card-text"> <b>Rating:</b> 
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <span
+                                        key={star}
+                                        style={{ color: star <= product.rating ? 'gold' : 'gray' }}
+                        
+                                    >
+                                    &#9733;
+                                    </span>
+                                ))}
+                                {product.rating}
+                                 </p> 
                                 <div className="card-footer bg-transparent border-success">
                                     
                                 <div className="row">
@@ -61,8 +76,8 @@ let ProductItemComponent = (props) =>{
                     </p>
                 </div>
             </div>
+        
             </div>
-        </div>
   
     )
 }

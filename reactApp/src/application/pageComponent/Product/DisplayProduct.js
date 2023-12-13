@@ -8,11 +8,10 @@ let DisplayProduct = (props)=>{
 
     let products = useSelector((state)=>state.productReducer.products);
     
-    console.log(products)
     let dispatchToDB = useDispatch();
 
     useEffect(()=>{
-     
+        console.log("displayproduct useeffect " + products)
         dispatchToDB(fetchDataFromDB()) 
     },
     [])
@@ -23,7 +22,6 @@ let DisplayProduct = (props)=>{
             <div className="row">
             
             {
-                
                 products && products.length >= 1 ? 
                 
                     products.map((product)=>{

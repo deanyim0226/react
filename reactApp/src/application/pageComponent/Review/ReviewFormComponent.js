@@ -43,7 +43,7 @@ let ReivewFormComponent = () =>{
         }
 
         dispatchToDb(saveReviewToDb(reviewInfo))
-
+        //update here?
         console.log(product)
         console.log("submit the review")
         console.log("context is " + context)

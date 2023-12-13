@@ -8,16 +8,9 @@ export const saveReview = (reviewInfo) =>{
     }
 }
 
-export const getReviews = (something) =>{
-    return {
-        type: actionTypes.GetReviews,
-        payload: something
-    }
-}
-
 export const emptyReviews = () =>{
     return {
-        type: actionTypes.GetReviews
+        type: actionTypes.EmptyReviews
     }
 }
 
@@ -36,7 +29,6 @@ export const saveReviewToDb = (reviewInfo) =>{
         .then((response)=>{
             
             console.log("successfully saved review to the DB " + response)
-
         })
         .catch((err)=>{
             console.log("there is an error while saving review to the DB" + err)

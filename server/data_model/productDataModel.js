@@ -11,7 +11,9 @@ let productSchema = new schemaObj(
         description: {type:String},
         rating: {type:String},
         qty: {type: Number, default:1},
-        reviews: {type:Array}
+        imageUrl: {type:String},
+        url: {type:String}
+
     }
 );
 

@@ -74,53 +74,70 @@ const Cart = (props) =>{
 
     return(
 
-        <>
-        <div class="container-fluid">
+        <>     
+        <div className="content-wrap" >  
 
-        <h1 class="align-middle">Cart</h1>
-        {   
-            cartList && cartList.length >= 1 ? 
-            <>
-            <table className="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col" >Item</th>
-                        <th scope="col" >Price</th>
-                        <th scope="col">Description</th>
-                        <th scope="col" >Rating</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">SubTotal</th>
-                        {
-                            props.readOnly ?  "" : //bydefault false as boolean default is false
-                            <Fragment>
-                                <th scope="col">Action</th>
-                            </Fragment>
-                        }
-                    </tr>
-                </thead>
-                <tbody  class="table-group-divider">
-                    {
-                        cartList.map((item) =>{
-                            return <CartItemComponent item ={item} key = {item._id}/>
-                        })
-                    }
+            <div class="container-fluid">
+     
+                <h1 className="title">Cart Page</h1>
+                {   
+                    cartList && cartList.length >= 1 ? 
+                    <>
+                    <h2>Details</h2>
+                    <table className="table table-light table-bordered ">
+                        <thead>
+                            <tr>
+                                <th scope="col" >Item</th>
+                                <th scope="col" >Price</th>
+                                <th scope="col">Description</th>
+                                <th scope="col" >Rating</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">SubTotal</th>
+                                {
+                                    props.readOnly ?  "" : //bydefault false as boolean default is false
+                                    <Fragment>
+                                        <th scope="col">Action</th>
+                                    </Fragment>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody  class="table-group-divider">
+                            {
+                                cartList.map((item) =>{
+                                    return <CartItemComponent item ={item} key = {item._id}/>
+                                })
+                            }
+                    
+                    
+                        </tbody>
+                    </table>
+
                     <Fragment>
-                    <button className="btn btn-warning" onClick={saveCart}>Save Cart</button>
+                    <div class="d-grid gap-2 col-2 mx-auto">
+                        <button className="btn btn-warning" onClick={saveCart}>Save Cart</button>
+                    </div>
                     </Fragment>   
-                </tbody>
-            </table>
-            
-            <CartSummary data = {recalculate(cartList)}/>
-            {
-                <Fragment>
-                    <button className="btn btn-warning" onClick={checkOut}>Checkout</button>
-                </Fragment>   
-            }
-            </>
-            : <h2>Please add items to cart</h2>
-            
-        }
+
+                    <br></br>
+         
+                        <CartSummary data = {recalculate(cartList)}/>
+
+                        <Fragment>
+                        <div class="d-grid gap-2 col-2 mx-auto">
+                            <button className="btn btn-warning" onClick={checkOut}>Checkout</button>
+                        </div>
+                        </Fragment>   
+              
+                    </>
+                    : 
+                    <div className="page-wrap" >  
+                        <h2>Please add items to cart</h2>
+                    </div>
+                    
+                }
+            </div>
         </div>
+    
         </>
         
     )

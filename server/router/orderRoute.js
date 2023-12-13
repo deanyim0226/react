@@ -26,6 +26,9 @@ orderRoute.post("/api/get", (req,res) =>{
         let userOrder = allOrder.filter( (item)=> {
             return item.userid === userId
         })
+
+        console.log("after sorting")
+        userOrder.sort((a,b)=> b.date - a.date)
         console.log(userOrder)
         res.send(userOrder)
     })

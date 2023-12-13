@@ -32,7 +32,15 @@ let ReviewDetail = (props) =>{
                     <h5 class="card-title">{reviewInfo.title}</h5>
                     </div>  
                     <div className="col">
-                        {reviewInfo.productInfo.rating}
+                    {[1, 2, 3, 4, 5].map((star) => (
+                        <span
+                            key={star}
+                            style={{ color: star <= reviewInfo.rating ? 'gold' : 'gray' }}
+            
+                        >
+                        &#9733;
+                        </span>
+                    ))}
                     </div>
                 </div>
             </div>

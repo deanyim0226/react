@@ -38,6 +38,7 @@ import Payment from "./pageComponent/Payment";
 import Order from "./pageComponent/Order";
 import Logout from "./pageComponent/Logout";
 */
+
 export default class Application extends Component{
     
     constructor(props){
@@ -52,8 +53,11 @@ export default class Application extends Component{
         return(
             <Router>
                 <Suspense fallback= {<div>LOADING..................</div>}>
+                    <div className="page-container">
                 <Header/>
+               
                     <Routes>
+                        
                         <Route path ="/" element = {<Home/>}/>
                         <Route path ="/profile" element = {<Profile/>}/>
                         <Route path = "/login" element = {<Login/>}/>
@@ -69,9 +73,11 @@ export default class Application extends Component{
                         <Route path= "/cancelledOrder" element = {<CancelledOrder/>}/>
                         <Route path= "/review/:id" element = {<Review/>}/>
                         <Route path="/review/write/:id" element = {<ReivewFormComponent/>}/>
+              
                     </Routes>
-
-           
+                  
+                <Footer/>
+                    </div>
                 </Suspense>
             </Router>
         

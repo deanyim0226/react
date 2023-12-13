@@ -7,7 +7,6 @@ import axios from "axios"
 An action is a plain JavaScript object that has a type field. 
 You can think of an action as an event that describes something that happened in the application.
 */
-
 export const sendDetailsToStore = (newProduct) => {
 
     return {
@@ -30,6 +29,13 @@ export const getSingleProductFromStore = (product) =>{
     }
 }
 
+export const updateProduct = (updatedProduct)=>{
+    return{
+        type: actionTypes.UpdateProduct,
+        payload: updatedProduct
+    }
+}
+
 export const getProductFromDb =(productId) =>{
     return (dispatch) => {
         window.fetch("http://localhost:9000/shop/api/getproduct",
@@ -48,12 +54,30 @@ export const getProductFromDb =(productId) =>{
         })
         .catch((err)=>{
             console.log("Error while getting product ", err)
-        })
-    
-    }
-       
-    
+        })    
+    }           
 } 
+
+export const dispatchUpdatedProduct = (existingProduct,updatedInfo) =>{
+    console.log("updated rating is " + updatedInfo)
+    return (dispatch) =>{
+        window.fetch("http://localhost:9000/shop/api/updateProdcut",{
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({existingProduct:existingProduct, updatedInfo:updatedInfo})
+        })
+        .then(response => response.json())
+        .then((response) =>{
+
+            console.log("successfully updated product " + response.name)
+            //is it necessary to update redux? maybe 
+            dispatch(updateProduct(response))
+        })
+    }
+}
 
 export const fetchDataFromDB = () =>{
 
@@ -80,6 +104,8 @@ export const saveDataToDB = (newProduct) =>{
 
         axios.post("http://localhost:9000/shop/api/sendDetail", newProduct)
         .then((savedProduct) =>{
+
+            
             let detail = savedProduct.data
 
             console.log("SAVE DATA TO DB")

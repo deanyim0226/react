@@ -39,20 +39,26 @@ let Review = (props) =>{
     */
 
         console.log(product)
-        console.log(product.name)
+        console.log("current Product is" + product.name)
 
     return(
         <>
-      
-        <h1>Review</h1>
-        {
-            product ?
+        <div className="content-wrap">  
 
-            <ProductReviewComponent product={product} key = {product._id}/>
-            :            
+            <div className="container-fluid">
 
-            ""
-        }
+    
+                <h1 className="title">Review</h1>
+                {
+                    product ?
+
+                    <ProductReviewComponent product={product} key = {product._id}/>
+                    :            
+
+                    ""
+                }
+            </div>
+        </div>
         </>
     )
 }

@@ -8,6 +8,7 @@ export const UpdateUserInfo = "USER.UPDATE"
 export const SendProductDetailsToStore = "PRODUCT.ADDPRODUCTTOSTORE"
 export const GetProductDetailsFromStore = "PRODUCT.GETPRODUCTFROMSTORE"
 export const GetSingleProductDetailsFromStore = "PRODUCT.GETSINGLEPRODUCT"
+export const UpdateProduct = "PRODUCT.UPDATE"
 
 //CART
 export const AddItemToCart = "CART.ADDITEM"
@@ -31,5 +32,4 @@ export const DeleteCancelledOrder = "CANCEL.DELETECANCELLEDORDER"
 
 //Review
 export const SaveReview = "REVIEW.SAVE"
-export const GetReviews = "REVIEW.GET"
 export const EmptyReviews = "REVIEW.EMPTY"

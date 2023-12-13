@@ -22,7 +22,7 @@ let CancelledOrderDetailCoponent = (props) =>{
         dispatchToDb(deleteCancelledOrderFromDb(item._id))
 
     }
-
+//I hope you are doing well during this cold weather. I also wish you would enjoy the meals that we have prepared. 
     console.log(item.order.date)
     return(
         <>
@@ -35,8 +35,8 @@ let CancelledOrderDetailCoponent = (props) =>{
                     }    
                 </td>
                 <td>{item.date}</td>
-
                 <td><button className="btn btn-warning" onClick={buyAgain}>BuyAgain</button></td>
+                
             </tr> 
         </>
     )

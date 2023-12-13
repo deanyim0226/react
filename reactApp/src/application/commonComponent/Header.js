@@ -11,10 +11,11 @@ let Header = (props) =>{
 
 
         <>
-        <nav className="navbar bg-dark border-bottom border-body " data-bs-theme="dark"> 
-
-            <ul className="nav nav-tabs">
-                <NavLink  to = "/"  className="nav-link" activeclassname = "success"   > Home  </NavLink>
+        <div className="header">
+        <nav className="navbar bg-dark border-bottom border-body" data-bs-theme="dark"> 
+        <div class="container-fluid">
+            <ul className="nav">
+                <NavLink  to = "/"  className="nav-link" activeclassname = "success"   >Home </NavLink>
             </ul>
 
             {
@@ -58,9 +59,9 @@ let Header = (props) =>{
                     }
                 </ul>
             </div>
-            
+            </div>
         </nav>
-   
+        </div>
         </>
 
        

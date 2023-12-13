@@ -35,9 +35,9 @@ let CartItemComponent = (props) =>{
                 :
                 <Fragment>
                     
-                    <td>  <button  onClick={decreaseQuantity}> -  </button></td>
+                    <td>  <span class="material-symbols-outlined" onClick={decreaseQuantity} style={{ cursor: 'pointer' }}>remove</span>   </td>
                     <td> &nbsp; {quantity} &nbsp; </td>
-                    <td>  <button  onClick={increaseQuantity}> +  </button> </td> 
+                    <td>    <span class="material-symbols-outlined" onClick={increaseQuantity} style={{ cursor: 'pointer' }} > add  </span>  </td>
             
                 </Fragment>
                   
@@ -46,7 +46,9 @@ let CartItemComponent = (props) =>{
             {
                 props.readOnly ?  "" : //bydefault false as boolean default is false
                     <Fragment>
-                        <td><button className="btn btn-warning" onClick={()=>dispatchItem(deleteItemFromCart(item._id))}>Remove</button> </td>
+                        <td> <span class="material-symbols-outlined" onClick={()=>dispatchItem(deleteItemFromCart(item._id))} style={{ cursor: 'pointer' }}>remove_shopping_cart</span> </td>
+                            
+
                     
                     </Fragment>
             }

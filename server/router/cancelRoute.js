@@ -46,6 +46,7 @@ cancelRoute.post("/api/getCancelledOrder", (req,res)=>{
             return item.userid === req.body.userid
         })
 
+        fillteredOrder.sort((a,b)=> b.date-a.date)
         res.status(200).json(fillteredOrder)
     })
     .catch((err)=>{

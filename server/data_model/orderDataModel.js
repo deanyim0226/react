@@ -7,7 +7,7 @@ schemaObj = mongooseObj.Schema
 let orderSchema = new schemaObj({
     userid: {type:String, required:true},
     order: Object,
-    date: Object
+    date: Date
 })
 
 let OrderModel = mongooseObj.model("order", orderSchema)

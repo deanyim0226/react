@@ -9,7 +9,7 @@ let reviewReducer = (state = Inital_Review, action) =>{
 
         case actionTypes.SaveReview:
             return [...state, action.payload]
-        case actionTypes.GetReviews:
+        case actionTypes.EmptyReviews:
             return []
         default:
             return state

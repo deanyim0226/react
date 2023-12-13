@@ -12,7 +12,9 @@ const Initial_Product_State = {
         name: "",
         price: "",
         description: "",
-        rating: ""
+        rating: "",
+        imageUrl:"",
+        url:""
     }
 }
 
@@ -29,6 +31,10 @@ let productReducer = (state = Initial_Product_State, action) =>{
 
         case ActionType.GetSingleProductDetailsFromStore:
             return {products: action.payload}
+
+        case ActionType.UpdateProduct: 
+            return {...state, products : action.payload}
+          
         default:
             return state
     }

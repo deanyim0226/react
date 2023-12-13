@@ -31,27 +31,26 @@ const Profile = () =>{
             evt.preventDefault()
     
         }
-       
-   
+
     }
   
     return(
         <>
 
-
+<img  class="image-form" src="https://img.freepik.com/free-photo/blonde-female-holding-bunch-colorful-shopping-bags_114579-76744.jpg"></img>
         <form className="form-profile" onSubmit={update}>                
-            <h1>USER PROFILE</h1>
+            <h1 className="title">USER PROFILE</h1>
             <form class="row g-3">
                 <div class="col-md-6">
                 <label className="form-label">
-                <b>Frist name </b>
+                <b className="label-form">Frist name </b>
                 <input type="text" className= "form-control" ref={firstNameRef}  
                         placeholder="First name" maxLength={20} />
                 </label>
-                </div>   
+                </div>
                 <div class="col-md-6">
                 <label className="form-label">
-                <b>Last name </b>
+                <b className="label-form">Last name </b>
                 <input type="text" className= "form-control" ref={lastNameRef}  
                         placeholder="Last name" maxLength={20} />
                 </label>
@@ -59,13 +58,14 @@ const Profile = () =>{
             </form>
       
             <div class="col-md-12">
-            <label for="inputEmail4" class="form-label"> <b>Address </b></label>
+            <label for="inputEmail4" class="form-label"> 
+            <b className="label-form">Address </b></label>
             <input type="text" class="form-control"ref={addressRef}  
                                 placeholder="Address" maxLength={50}/>
             </div>
 
             <div class="col-md-12">
-            <label for="inputEmail4" class="form-label"> <b>Mobile </b></label>
+            <label for="inputEmail4" class="form-label"> <b className="label-form">Mobile </b></label>
             <input type="text" class="form-control"ref={mobileRef}  
                             placeholder="Mobile" maxLength={13}/>
             </div>
@@ -76,7 +76,8 @@ const Profile = () =>{
             <button className="btn btn-warning" >Update </button>
     
         </form>
-            
+        
+
   
         </>
     )
@@ -85,3 +86,5 @@ const Profile = () =>{
 
 
 export default Profile
+
+//<img  class="image-form" src="https://st4.depositphotos.com/13193658/25036/i/450/depositphotos_250363028-stock-photo-smiling-beautiful-woman-holding-shopping.jpg"></img>

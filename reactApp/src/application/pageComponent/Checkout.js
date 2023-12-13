@@ -65,7 +65,7 @@ const Checkout = () =>{
     let payment =(evt) =>{
 
         alert("Thankyou for the payment, your items under process!")
-        const orderDate = new Date()
+        let orderDate = new Date()
 
         const orderInformation = {
             userid: user._id,
@@ -115,34 +115,38 @@ const Checkout = () =>{
 
     return(
         <>
+        <div className="content-wrap" > 
+
         <div class="container-fluid">
 
-        <div className="row">
-            <div className = "col-sm-8">
-            <h1>Checkout PAGE</h1> 
-            </div>
-            <div className = "col-sm-4">
-            <h5>Available Cupons  &nbsp;
-                <select defaultValue={discount} onChange={e => setDiscount(e.target.value)}> 
-                        
-                        {
-                            couponList.map((coupon)=>{
-        
-                                return <option value= {coupon.discount} key={coupon._id}> {coupon.discount} %</option>
-                            })
-                        }
-                </select>
-            </h5>
-            </div>
-       
+            <h1 className="title">Checkout Page</h1> 
+           
         </div>
-
         {
             user && cartList && cartList.length >= 1 ? 
 
-            <>
+            <>  
+                <div className="row">
+                <div className="col-9">
                 <h2>ITEMS INFORMATION</h2>
-                <table className="table table-bordered">
+                </div>
+                    <div className="col-3">
+                        <h5>Available Cupons
+                        <select defaultValue={discount} onChange={e => setDiscount(e.target.value)}> 
+                                
+                                {
+                                    couponList.map((coupon)=>{
+                
+                                        return <option value= {coupon.discount} key={coupon._id}> {coupon.discount} %</option>
+                                    })
+                                }
+                        </select>
+                        </h5>
+                    </div>
+              
+                </div>
+              
+                <table  className="table table-light table-bordered ">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -167,7 +171,7 @@ const Checkout = () =>{
     
                     <h2>SHIPPING ADDRESS</h2>
 
-                    <table className="table table-bordered" >
+                    <table  className="table table-light table-bordered ">
                         <thead>
                             <tr>
                                 <th>User Info</th>
@@ -184,12 +188,12 @@ const Checkout = () =>{
                         </tbody>
                     </table>
 
-                    <h2>CARD DETAILS</h2>
+                    <h2 >CARD DETAILS</h2>
 
-                    <table className="table table-bordered" >
+                    <table  className="table table-light table-bordered ">
                         <thead>
                             <tr>
-                                <th></th>
+                                <th>Visa/Master</th>
                                 <th>CARD INFO</th>
                             </tr>
                         </thead>
@@ -266,8 +270,6 @@ const Checkout = () =>{
                                         <button className="btn btn-warning" onClick={payment}>PLACE ORDER</button>
                                         </tr>
 
- 
-                         
                                  </td>
                             
                             </tr>
@@ -283,6 +285,8 @@ const Checkout = () =>{
             :""
         } 
         </div>
+
+     
         </>
     )
 }

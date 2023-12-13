@@ -7,31 +7,33 @@ let CartSummary = (props) =>{
 
     return(
         <>
-        <h1 class="align-middle">CART SUMMARY</h1>
-        <div>
-    
-            <table class="table table-bordered" >
-                <thead>
-             
-                    <tr>
-                        <th scope="col">Items</th>
-                        <th scope="col" >Total</th>
-                        <th scope="col">Quantity</th>
-                    </tr>
-                </thead>
+         
+            <h2>CART SUMMARY</h2>
+            <div>
         
-                <tbody class="table-group-divider">
+            <table  className="table table-light table-bordered ">
+                    <thead>
+                
+                        <tr>
+                            <th scope="col">Items</th>
+                            <th scope="col" >Total</th>
+                            <th scope="col">Quantity</th>
+                        </tr>
+                    </thead>
             
-                    <tr>
-                        <td>{cartSummaryInfo.items}</td>
-                        <td>${cartSummaryInfo.total } </td>
-                        <td>{cartSummaryInfo.qty}</td>
-                       
-                    </tr>
-                </tbody>
-            </table>
+                    <tbody class="table-group-divider">
+                
+                        <tr>
+                            <td>{cartSummaryInfo.items}</td>
+                            <td>${cartSummaryInfo.total } </td>
+                            <td>{cartSummaryInfo.qty}</td>
+                        
+                        </tr>
+                    </tbody>
+                </table>
 
-        </div>
+            </div>
+        
         </>
     )
 }

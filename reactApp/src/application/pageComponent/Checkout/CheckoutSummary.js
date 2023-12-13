@@ -8,7 +8,7 @@ let Checkout = (props) =>{
         <>
             <h2>SUMMARY</h2>
          
-            <table className="table table-bordered">
+            <table  className="table table-light table-bordered ">
                 <thead>
                     <tr>
                         <th scope="col">Subtotal</th>

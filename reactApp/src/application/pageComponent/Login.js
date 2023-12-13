@@ -32,8 +32,11 @@ const Login = () =>{
 
     return (
         <>
+          <img  class="image-form" src="https://images.ctfassets.net/69ywg46tbhs3/2dqfSRoGoDBuytrsbhgxdN/9c07dace1811ff748ad4619923f33a93/shopping-homepage-sqaure-img-_1__.jpg?w=1116&h=768&fit=scale&q=100&fm=webp"></img>
+
+        
         <form className= {"form-login"} onSubmit={login}>
-            <h1>Sign in</h1>
+            <h1 className="title">Sign in</h1>
             <label >
                 <b>Email</b>
                 <input type="text" className="form-control" value={email}  onChange={ (evt) => {setEmail(evt.target.value)}}

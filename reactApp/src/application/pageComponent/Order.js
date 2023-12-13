@@ -40,13 +40,15 @@ const Order = (props) =>{
     return(
 
         <>
+        <div className="content-wrap" > 
         <div className="container-fluid">
-        <h1>RECENT ORDER</h1>
+            
+        <h1 className="title">RECENT ORDER</h1>
         <h4>USER NAME : {user.lastName} {user.firstName}</h4>
         {
             orderList ?
             <>
-                <table className="table table-bordered">
+                 <table  className="table table-light table-bordered ">
                     <thead>
                         <tr>
                             <th>Order</th>
@@ -74,6 +76,7 @@ const Order = (props) =>{
             </>
             : ""
         }
+        </div>
         </div>
         </>
     )

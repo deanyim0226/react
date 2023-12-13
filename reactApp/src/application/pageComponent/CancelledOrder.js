@@ -28,31 +28,33 @@ let CancelledOrder = (props) =>{
 
     return (
         <>
-        <div className="container-fluid">
-        <h1>Cancelled Order</h1>
-        {   
-            cancelledOrder && cancelledOrder.length >= 1 ?
-            <table  className="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Date</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider">
-        
-                    {
-                        cancelledOrder.map((item)=>{
+        <div className="content-wrap" >  
+            <div className="container-fluid">
+                <h1 className="title">Cancelled Order</h1>
+                {   
+                    cancelledOrder && cancelledOrder.length >= 1 ?
+                    <table  className="table table-light table-bordered ">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                
+                            {
+                                cancelledOrder.map((item)=>{
 
-                            return <CancelledOrderDetailCoponent item ={item} key={item._id}/>
-                        })
-                    
-                    }
-                </tbody>
-            </table>
-            :""
-        }
+                                    return <CancelledOrderDetailCoponent item ={item} key={item._id}/>
+                                })
+                            
+                            }
+                        </tbody>
+                    </table>
+                    :""
+                }
+            </div>
         </div>
         </>
     )
