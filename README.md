@@ -3,18 +3,18 @@
 
 ## Product Implementation
 
-Markup: * Each Product should have general fields, like Name, Description, Rating, Price, Category (New Product Document/ Collection)
+- Each Product should have general fields, like Name, Description, Rating, Price, Category (New Product Document/ Collection)
 In Product component each item when we click to display details should also have a button "Add To Item" on click should add to New Cart
 Cart Implementation
 
-Create New Cart Component using react hooks, functional component
+- Create New Cart Component using react hooks, functional component
 Each Item in this component should be added from Product Component
 On Cart Component, Button for save to Checkout should save the cart item to database (New Cart Document/ Collection)
 Checkout Component
 
 ## Cart Implementation
 
-Create A functional component and use react hook or using container to read data from store
+- Create A functional component and use react hook or using container to read data from store
 Show - User Details (Name, address) //We will deliver products to below address kind of message as well
 Show Table of cart put up for purchase (you need to re-use the cartlist and cartitem components)
 Show the purchase Summary (total qty and total amount)
@@ -27,12 +27,12 @@ Coupon Page
 
 ## Checkout Component
 
-Create a component with Name - CouponComponent (Functional Component and Use Hooks)
+- Create a component with Name - CouponComponent (Functional Component and Use Hooks)
 On the page add a Button - GenerateCoupon
 Upon Click Generate a random coupon of - 6 digits (basically a numeric random value)
 Dispatch this generated coupon using useDispatch
-Create a Coupon Reducer to have Coupon Value, Use Reducer to update the coupon value (useSelector coupon)
-Create action to pass coupon to reducer, with type and payload
+- Create a Coupon Reducer to have Coupon Value, Use Reducer to update the coupon value (useSelector coupon)
+- Create action to pass coupon to reducer, with type and payload
 Admin
 
 ## Admin
