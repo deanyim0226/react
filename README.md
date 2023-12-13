@@ -20,12 +20,16 @@ Show Table of cart put up for purchase (you need to re-use the cartlist and cart
 Show the purchase Summary (total qty and total amount)
 Show a Button to Proceed to Payment
 Integrate this page on CartComponent Button (Go to checkout) -(Go To Checkout From Cart Component)
-Create a state using useState to show hide (Make Payment Message)
-Upon Clicking on MakePayment button, hide everything and just show the message - "Thankyou for the payment, your items under process!"
-Change the header from Checkout Page to Payment Page
-Coupon Page
 
 ## Checkout Component
+
+- Create a state using useState to show hide (Make Payment Message)
+Upon Clicking on MakePayment button, hide everything and just show the message - "Thankyou for the payment, your items under process!"
+Change the header from Checkout Page to Payment Page
+
+## Review Component
+
+## Coupon Component
 
 - Create a component with Name - CouponComponent (Functional Component and Use Hooks)
 On the page add a Button - GenerateCoupon
