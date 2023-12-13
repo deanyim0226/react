@@ -27,8 +27,6 @@ Integrate this page on CartComponent Button (Go to checkout) -(Go To Checkout Fr
 Upon Clicking on MakePayment button, hide everything and just show the message - "Thankyou for the payment, your items under process!"
 Change the header from Checkout Page to Payment Page
 
-## Review Component
-
 ## Coupon Component
 
 - Create a component with Name - CouponComponent (Functional Component and Use Hooks)
@@ -38,6 +36,34 @@ Dispatch this generated coupon using useDispatch
 - Create a Coupon Reducer to have Coupon Value, Use Reducer to update the coupon value (useSelector coupon)
 - Create action to pass coupon to reducer, with type and payload
 Admin
+
+## RecentOrder Component
+- Upon MakePayment Click, save the cart to RecentOrders collection (should have userid, order, dateTime)
+- Make API to Save and Fetch from RecentOrders
+- Make a component RecentOrders to Show all previous Orders of current user
+- Add a button to Cancel (like) we have remove in CartComponent and then save again, 
+- order can be cancelled within 2 days after that it should be marked delivered
+
+## CancelledOrder Component
+
+- Save the order to CancelledOrders collection (should have userid, cancelled, dateTime)
+- Make API to Save and Fetch from CancelledOrders
+- Make a component CancelledOrders to Show all cancelled Orders of current user in Latest First
+- Add a button to Buy Again, (also show a message - This offer is much more exciting)
+- Upon Adding this should get appended to the existing Cart that is shown in Carts App
+
+## ReOrder Component
+- User to reorder from recent orders or from cancelled orders
+- A Simple process just add the order to your cart and replace or merge whatever is present in cart
+
+## Review Component
+
+- This should get its reviews from recent orders page
+- User should be allowed to give ratings and his comments to each products
+- Upon successful submission each product should have a link to show its review 
+- When user expands product detail we should also see the button to which will take us to its review
+- on recent order page we can show a popup to submit rating or a new page its up to you //can use -> react bootstrap
+- user should only be able to give rating once cancel button is gone
 
 ## Admin
 
