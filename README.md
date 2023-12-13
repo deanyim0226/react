@@ -1,5 +1,5 @@
 
-# Shopping Cart App using react and express
+# Shopping Cart App using react.js, redux, express.js, and MongoDB
 
 ## Product Implementation
 
@@ -70,15 +70,4 @@ Admin
 - Hide all the links except : Home, User and About for a user not logged-in
 In Product Component show Save to product section only to a user with name "admin" so that not all users
 can insert the products to database
-
-# react
-HTTP Method with CURD
-
-POST -> create
-GET -> read
-PUT -> update
-DELETE -> delete
-
-STEP to follow
-npm init
 
